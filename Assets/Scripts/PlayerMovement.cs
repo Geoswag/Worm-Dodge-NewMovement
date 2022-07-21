@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     public static bool boolGamePaused = false;
     public GameObject pauseMenuUI;
+    public static bool boolHasJumped = false;
 
     private void Awake()
     {
@@ -103,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
         if (Physics.OverlapSphere(transformCheckGrounded.position, 0.3f, layerCollide).Length != 0)
         {
             playerBody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+            boolHasJumped = true;
         }
     }
 
