@@ -18,6 +18,7 @@ public class Achievements : MonoBehaviour
     public GameObject bronze;
     public GameObject silver;
     public GameObject gold;
+    public GameObject lvl1NoJump;
 
     void Start()
     {
@@ -76,6 +77,10 @@ public class Achievements : MonoBehaviour
             PlayerPrefs.SetInt("Gold", 1);
             gold.SetActive(false);
         }
+        
+        //Lvl1NoJump
+        if (PlayerPrefs.GetInt("Lvl1NoJump") = 1)
+            lvl1NoJump.SetActive(false);
     }
 
     void Update()
