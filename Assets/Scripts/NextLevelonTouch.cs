@@ -11,11 +11,14 @@ public class NextLevelonTouch : MonoBehaviour
     public GameObject hudContainerUI;
     public Text endTime;
     public float endTimeFloat;
+    public static bool boolHasJumped;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
+            if(SceneManager.GetActiveScene().buildIndex == 1 && boolHasJumped == false)
+                PlayerPrefs.SetInt("Lvl1NoJump", 1)
             PlayerPrefs.SetInt("EndScreen", 1);
             nextLevelScreenUI.SetActive(true);
             TimerController.instance.GetEndTime();
