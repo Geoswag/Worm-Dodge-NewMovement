@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerBody = this.GetComponent<Rigidbody>();
         playerInputs = new PlayerInputs();
+        PlayerPrefs.SetInt("HasJumped", 0);
         //movementForce = (movementForce / Time.fixedDeltaTime);
     }
 
@@ -103,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
         if (Physics.OverlapSphere(transformCheckGrounded.position, 0.3f, layerCollide).Length != 0)
         {
             playerBody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+            PlayerPrefs.SetInt("HasJumped", 1);
         }
     }
 
