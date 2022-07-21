@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Vector3 v3BounceForce = new Vector3(0, 10f, 0);
 
     [SerializeField] Camera playerCamera;
+    
+    private bool hasJumped = false;
 
     public static bool boolGamePaused = false;
     public GameObject pauseMenuUI;
@@ -103,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
         if (Physics.OverlapSphere(transformCheckGrounded.position, 0.3f, layerCollide).Length != 0)
         {
             playerBody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+            hasJumped = true;
         }
     }
 
